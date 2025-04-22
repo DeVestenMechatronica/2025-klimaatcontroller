@@ -1,0 +1,13 @@
+[Unit]
+Description=Python applicatie voor de klimaatcontroller
+After=network.target
+
+[Service]
+ExecStart=/bin/bash /home/mechatronica/klimaatcontroller/startup.sh
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
