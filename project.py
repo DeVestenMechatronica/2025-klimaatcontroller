@@ -1,10 +1,25 @@
 from gpiozero import DigitalOutputDevice
 import bme680
 import time
+import influxdb_client_3
 from time import sleep
+from influxdb_client_3 import InfluxDBClient3, Point, WriteOptions 
+from datetime import datetime
 
+# Constantes voor ventilator sturing
 TEMPERATURE_HIGH = 23.3
 TEMPERATURE_LOW = 22.5 
+
+# Constantes voor influxdb
+DATABASE_NAME = "sensors"
+DATABASE_TOKEN = "apiv3_twVOSg3DPHEVzmaQ64sbDv6tlCdo9jFC8JG0UQgHHxfDaWNUYnauYpZXpLLm7QtOi2YSITPkL5dZy760HfeKAg"
+DATABASE_HOST = "http://10.30.40.2:8181"
+
+# Initialiseer de database client
+client = InfluxDBClient3(host=DATABASE_HOST,
+                        database=DATABASE_NAME,
+                        token=DATABASE_TOKEN)
+
 
 # Create a sensor object
 sensor = bme680.BME680()
@@ -35,6 +50,13 @@ while True:
 
         else:
             print(output)
+    
+    #Hier is probleem!
+    # We maken een datapunt
+    point = "temperature={0:.2f},pressure={1:.2f},humidity={2:.2f}".format(sensor.data.temperature, sensor.data.pressure, sensor.data.humidity)
+    # We schrijven deze weg naar de database
+    client.write(record=point, write_precision="s")
+
     if float(sensor.data.temperature) >= TEMPERATURE_HIGH:
         ventilator.on()
     elif float(sensor.data.temperature) <= TEMPERATURE_LOW:
