@@ -3,7 +3,9 @@ Met Edgeberry
 
 ## setup
 hier kan je uitleggen hoe je het project installeert
-Om influxdb client te gebruiken voer je dit in in de commandline
+
+
+Om influxdb client te gebruiken voer je dit in in de commandline:
 ```
 pip install influxdb3-python
 ```
