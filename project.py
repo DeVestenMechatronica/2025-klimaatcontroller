@@ -8,12 +8,14 @@ from datetime import datetime
 
 # Constantes voor ventilator sturing
 TEMPERATURE_HIGH = 23.3
-TEMPERATURE_LOW = 22.5 
+TEMPERATURE_LOW = 22.5
 
 # Constantes voor influxdb
 DATABASE_NAME = "sensors"
-DATABASE_TOKEN = "apiv3_twVOSg3DPHEVzmaQ64sbDv6tlCdo9jFC8JG0UQgHHxfDaWNUYnauYpZXpLLm7QtOi2YSITPkL5dZy760HfeKAg"
-DATABASE_HOST = "http://10.30.40.2:8181"
+#DATABASE_TOKEN = "apiv3_twVOSg3DPHEVzmaQ64sbDv6tlCdo9jFC8JG0UQgHHxfDaWNUYnauYpZXpLLm7QtOi2YSITPkL5dZy760HfeKAg"
+#DATABASE_HOST = "http://10.30.40.2:8181"
+DATABASE_TOKEN = "apiv3_oJWXfb0Y0GSLs0fAH9DwnhDg9Mj8IDzOPRgo7Q-6G0qKoFzOW7Wynm7uTLp3qCnzz_rvBzY9L5OxUlmQ8VXHEQ"
+DATABASE_HOST = "http://192.168.1.115:8181"
 
 # Initialiseer de database client
 client = InfluxDBClient3(host=DATABASE_HOST,
@@ -45,18 +47,28 @@ while True:
     if sensor.get_sensor_data():
         output = "{0:.2f} C,{1:.2f} hPa,{2:.2f} %RH".format(sensor.data.temperature, sensor.data.pressure, sensor.data.humidity)
 
+
         if sensor.data.heat_stable:
             print("{0},{1} Ohms".format(output, sensor.data.gas_resistance))
 
         else:
             print(output)
-    
-    #Hier is probleem!
-    # We maken een datapunt
-    point = "temperature={0:.2f},pressure={1:.2f},humidity={2:.2f}".format(sensor.data.temperature, sensor.data.pressure, sensor.data.humidity)
-    # We schrijven deze weg naar de database
-    client.write(record=point, write_precision="s")
 
+    	# We maken een datapunt voor onze meting
+        point = (
+            Point("environment")
+            .tag("location", "factory_floor")
+            .field("temperature", round(sensor.data.temperature, 2))
+            .field("humidity", round(sensor.data.humidity, 2))
+            .time(datetime.utcnow())
+            )
+    	# We schrijven het datapunt weg naar de database
+        try:
+            client.write(record=point, write_precision="s")
+        except:
+            print("Datapunt niet opgeslagen in de database")
+
+    # Ventilator sturing
     if float(sensor.data.temperature) >= TEMPERATURE_HIGH:
         ventilator.on()
     elif float(sensor.data.temperature) <= TEMPERATURE_LOW:
