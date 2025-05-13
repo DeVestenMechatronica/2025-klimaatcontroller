@@ -2,34 +2,37 @@
 In dit programma meten we omgevingswaarden met behulp van een BME680. Deze waarden worden dan via een bedraad netwerk doorgestuurd naar een ander apparaat, een [monitor](https://github.com/DeVestenMechatronica/raspberrypi-iot-dashboard). Ook is er een ventilator aangesloten die aangestuurd wordt op basis van de temperatuur.
 
 #### Hardware: 
-- Raspberry Pi 4B+ 
-- Edgeberry Baseboard
-- Sense And Drive Cartridge
-- BME680 sensor
+- Raspberry Pi 3B+/4B/5B 
+- [Edgeberry Baseboard](https://github.com/Edgeberry/Edgeberry-Baseboard)
+- [Edgeberry Sense'n'Drive Hardware Cartridge](https://github.com/Edgeberry/Edgeberry-HWCartridge-SenseAndDrive)
+- [BME680](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme680-ds001.pdf) temperatuur/luchtvochtigheid/luchtdruk/luchtkwaliteit sensor
 - 
 
-#### Libraries:
-- influxdb3-python 
-- BME680
+#### Python Libraries:
+- [influxdb3-python]() 
+- [BME680](https://pypi.org/project/bme680/)
 
 
 ## Setup
 Wat je moet doen voordat je het programma opstart.
 
-
-We maken een virtual environment.
-
-
-Voer dit in bij de terminal van het toestel:
+### Virtual Environment
+We maken een `virtual environment` met dit commando:
 ```
 python3 -m venv venv
+```
+Om de `virtual environment` te starten voer je dit commando uit:
+```
 source venv/bin/activate
 ```
-
-
-Om influxdb client te gebruiken voer je dit in in de commandline:
+### Installatie libraries
+Om de `Influxdb` client library te installeren voer je dit commando uit:
 ```
 pip install influxdb3-python
+```
+Installeer de `BME680` library
+```
+pip install bme680
 ```
 #### Referenties:
 https://docs.influxdata.com/influxdb3/cloud-dedicated/reference/client-libraries/v3/python/#installation 
