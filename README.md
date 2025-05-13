@@ -1,6 +1,16 @@
 # Klimaatcontroller
 In dit programma meten we omgevingswaarden met behulp van een BME680. Deze waarden worden dan via een bedraad netwerk doorgestuurd naar een ander apparaat, een [monitor](https://github.com/DeVestenMechatronica/raspberrypi-iot-dashboard). Ook is er een ventilator aangesloten die aangestuurd wordt op basis van de temperatuur.
 
+#### Hardware: 
+- Raspberry Pi 4B+ 
+- Edgeberry Baseboard
+- Sense And Drive Cartridge
+- BME680 sensor
+- 
+
+#### Software:
+- 
+
 
 
 ## setup
