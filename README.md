@@ -13,7 +13,7 @@ In dit programma meten we omgevingswaarden met behulp van een BME680. Deze waard
 - BME680
 
 
-## setup
+## Setup
 Wat je moet doen voordat je het programma opstart.
 
 
@@ -31,7 +31,7 @@ Om influxdb client te gebruiken voer je dit in in de commandline:
 ```
 pip install influxdb3-python
 ```
-#### referenties:
+#### Referenties:
 https://docs.influxdata.com/influxdb3/cloud-dedicated/reference/client-libraries/v3/python/#installation 
 
 ### Opstart
@@ -45,7 +45,7 @@ Tijdens de ontwikkeling van de klimaatcontroller software schakelen we deze bete
 sudo systemctl disable klimaatcontroller.service
 ```
 
-#### referenties:
+#### Referenties:
 - De [Edgeberry](https://github.com/Edgeberry) repository
 - De [Edgeberry Sense'n'Drive Cartridge](https://github.com/Edgeberry/Edgeberry_SenseAndDrive_Cartridge)
 - De [Freya](https://github.com/Freya-Vivariums/Freya-sensor) sensor
