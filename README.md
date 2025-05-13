@@ -8,13 +8,15 @@ In dit programma meten we omgevingswaarden met behulp van een BME680. Deze waard
 - BME680 sensor
 - 
 
-#### Software:
-- 
-
+#### Libraries:
+- influxdb3-python 
+- BME680
 
 
 ## setup
 hier kan je uitleggen hoe je het project installeert
+
+
 
 
 Om influxdb client te gebruiken voer je dit in in de commandline:
