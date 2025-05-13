@@ -17,7 +17,6 @@ In dit programma meten we omgevingswaarden met behulp van een BME680. Deze waard
 Wat je moet doen voordat je het programma opstart.
 
 
-
 We maken een virtual environment.
 
 
@@ -46,8 +45,12 @@ Tijdens de ontwikkeling van de klimaatcontroller software schakelen we deze bete
 sudo systemctl disable klimaatcontroller.service
 ```
 
+#### referenties:
 - De [Edgeberry](https://github.com/Edgeberry) repository
 - De [Edgeberry Sense'n'Drive Cartridge](https://github.com/Edgeberry/Edgeberry_SenseAndDrive_Cartridge)
 - De [Freya](https://github.com/Freya-Vivariums/Freya-sensor) sensor
 - De [cmds](https://learn.pimoroni.com/article/getting-started-with-bme680-breakout) voor de sensor
+
+## Licensie
+**Copyright© 2025 Mechatronica Campus De Vesten**. Dit project is gedeeld onder de [MIT-licentie](LICENSE.txt).
 
