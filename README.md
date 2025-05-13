@@ -53,7 +53,7 @@ Tijdens de ontwikkeling van de klimaatcontroller software schakelen we deze bete
 ```
 sudo systemctl disable klimaatcontroller.service
 ```
->[!INFO]
+>[!TIP]
 >Het `startup.sh` script doet niet meer dan de `virtual environment` starten, en ons Python project uitvoeren.
 
 #### Referenties:
