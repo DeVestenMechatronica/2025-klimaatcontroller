@@ -16,6 +16,8 @@ In dit programma meten we omgevingswaarden met behulp van een BME680. Deze waard
 ## setup
 Wat je moet doen voordat je het programma opstart.
 
+
+
 We maken een virtual environment.
 
 
@@ -24,6 +26,7 @@ Voer dit in bij de terminal van het toestel:
 python3 -m venv venv
 source venv/bin/activate
 ```
+
 
 Om influxdb client te gebruiken voer je dit in in de commandline:
 ```
