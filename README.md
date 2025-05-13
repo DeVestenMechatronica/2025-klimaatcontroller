@@ -1,4 +1,4 @@
-# Klimaatcontroller
+# IoT Klimaatcontroller
 In dit programma meten we omgevingswaarden met behulp van een BME680. Deze waarden worden dan via een bedraad netwerk doorgestuurd naar een ander apparaat, een [monitor](https://github.com/DeVestenMechatronica/raspberrypi-iot-dashboard). Ook is er een ventilator aangesloten die aangestuurd wordt op basis van de temperatuur.
 
 #### Hardware: 
@@ -37,7 +37,13 @@ pip install bme680
 #### Referenties:
 https://docs.influxdata.com/influxdb3/cloud-dedicated/reference/client-libraries/v3/python/#installation 
 
-### Opstart
+## Uitvoeren Python programma
+We hebben de `virutal environment` opgestart, en alle `libraries` geinstalleerd. Nu kunnen we het programma uitvoeren:
+```
+python project.py
+```
+
+### Automatische opstart
 Om te zorgen dat ons Python programma opstart telkens als de Raspberry Pi opstart gebruiken we `systemd`. We gebruiken het script `klimaatcontroller.service` hiervoor, dat het script `start.sh` uitvoert.
 ```
 sudo cp klimaatcontroller.service /etc/systemd/system/
