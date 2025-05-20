@@ -7,12 +7,12 @@ from influxdb_client_3 import InfluxDBClient3, Point, WriteOptions
 from datetime import datetime
 
 # Constantes voor ventilator sturing
-TEMPERATURE_HIGH = 23.3
-TEMPERATURE_LOW = 22.5
+TEMPERATURE_HIGH = 27.0
+TEMPERATURE_LOW = 24.0
 
 # Constantes voor influxdb
 DATABASE_NAME = "sensors"
-DATABASE_TOKEN = "apiv3_twVOSg3DPHEVzmaQ64sbDv6tlCdo9jFC8JG0UQgHHxfDaWNUYnauYpZXpLLm7QtOi2YSITPkL5dZy760HfeKAg"
+DATABASE_TOKEN = "apiv3_EGJTJEnVwntVLy-j8hBkvNaOdujM-sM5cXAZMV8fdWsMirvM71VwIrIOniQZMk3Dl0P4Gk9SCPhfKprhXqsrEg"
 DATABASE_HOST = "http://10.30.40.2:8181"
 
 # Initialiseer de database client
