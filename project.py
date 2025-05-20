@@ -7,8 +7,8 @@ from influxdb_client_3 import InfluxDBClient3, Point, WriteOptions
 from datetime import datetime
 
 # Constantes voor ventilator sturing
-TEMPERATURE_HIGH = 27.0
-TEMPERATURE_LOW = 24.0
+TEMPERATURE_HIGH = 30.0
+TEMPERATURE_LOW = 28.2
 
 # Constantes voor influxdb
 DATABASE_NAME = "sensors"
